@@ -1,0 +1,47 @@
+<div class="potluck-events-container">
+  <div class="show-container form-wrapper">
+    <h1><%= @event.name %> </h1>
+
+    <h4> Date: <%= @event.date %></h4>
+    <h4>Time: <%= @event.time %></h4>
+    <h4>Description: <%= @event.description %></h4>
+    <h4>Location: <%= @event.location %></h4>
+    <table class="potluck-table">
+      <thead>
+        <tr>
+          <th>Attendees</th>
+          <th>Dishes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.users.uniq.each do |potluck_attendee| %>
+          <tr>
+            <td><%= link_to potluck_attendee.name, potluck_attendee %></td>
+            <td>
+              <% potluck_attendee.dishes.each do |dish| %>
+                <% if dish.event_id == @event.id %>
+                <%= link_to dish.name, dish %>
+                <span class="comma-separator">,</span>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="form-actions">
+      <% if user_signed_in? && current_user.id == @event.user_host_id %>
+        <%= button_to "Delete Potluck", @event, :method => :delete, class: "delete-button" %>
+      <% end %>
+      <!-- hide this button if current user is not host  -->
+      <% if user_signed_in? %>
+        <%= link_to "Join Event", new_dish_event_path(@event), class: "new-action-button" %>
+      <% else %>
+        <%= link_to "Sign In to Join Event", new_user_session_path, class: "new-action-button" %>
+      <% end %>
+    </div>
+
+    <!-- this link should show if youre joined already -->
+  </div>
+</div>

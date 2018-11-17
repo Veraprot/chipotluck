@@ -1,0 +1,45 @@
+<div class="potluck-events-container">
+  <h1>All Potlucks</h1>
+
+<%# SEARCH! %>
+  <div class="search-container">
+    <%= form_tag(events_path, method: :get) do %>
+    <%= label_tag(:location, "Search by Location:") %>
+    <div class="search-inner-container">
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Search", class: "search-button") %>
+    </div>
+    <% end %>
+  </div>
+
+<%# EVENT LIST! %>
+<% @events.each do |event| %>
+    <%= link_to event, class: "event-card" do %>
+      <div class="event-content">
+        <p class="event-name">
+          <%= event.name %>
+        </p>
+        <ul>
+          <li>
+            <%= fa_icon "calendar" %>
+            <%= event.date %>
+          </li>
+          <li>
+            <%= fa_icon "user-clock" %>
+            <%= event.time %>
+          </li>
+          <li><%= event.location %></li>
+        </ul>
+        <div class="user-thumbnails">
+          <% event.users.uniq.each do |user| %>
+            <div class="thumbnail">
+              <%= image_tag(user.avatar.url(:thumb), :class => "avatar-image") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end  %>
+  <% end %>
+</div>
+
+<!-- check out https://www.groupmuse.com/calendar as style guide -->

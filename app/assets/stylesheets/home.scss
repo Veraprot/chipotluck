@@ -1,0 +1,31 @@
+body {
+  .home-container {
+    width: 65%;
+    margin: 0 auto;
+
+    .potluck-logo {
+      margin-top: 10%;
+      text-align: center;
+      z-index: 1;
+
+      img {
+        width: 100%;
+      }
+    }
+
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .new-action-button {
+        margin-right: 10px;
+
+        &.warm {
+          background-color: $warm;
+        }
+      }
+    }
+  }
+}

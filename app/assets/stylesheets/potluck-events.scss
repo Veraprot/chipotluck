@@ -1,0 +1,166 @@
+body {
+  .potluck-events-container {
+    width: 55%;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      font-family: $pacifico;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .search-container {
+      .search-inner-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0px;
+        max-width: 600px;
+
+        input[type=text] {
+          width: 80%;
+          margin: 0px;
+        }
+
+        .search-button {
+          margin-left: 8px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .dish-recipes {
+    h1 {
+      font-family: $bad-script;
+    }
+  }
+
+  .potluck-events-container,
+  .user-events,
+  .dish-recipes {
+    .event-card,
+    .dish-card {
+      p,
+      li {
+        text-transform: capitalize;
+      }
+
+      .event-name {
+        font-size: 20px;
+        color: white;
+      }
+
+      .event-content {
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: $ocean-grey-background;
+        box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+        transition: all .3s cubic-bezier(.25,.8,.25,1);
+        cursor: pointer;
+        border-radius: 4px;
+
+        &.user-content,
+        &.dish-content {
+          background-color: $warm;
+
+          .dish-title {
+            font-family: $bad-script;
+            font-weight: 100;
+            font-size: 24px;
+            text-align: center;
+          }
+
+          .title-separator {
+            width: 100%;
+            background-color: white;
+            height: 2px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+          }
+
+          .ingredients-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .recipe-ingredient {
+              text-transform: capitalize;
+              width: 30%;
+              font-weight: 100;
+              margin-bottom: 10px;
+              text-align: center;
+            }
+          }
+        }
+
+        ul {
+          padding-left: 0px;
+        }
+
+        .user-thumbnails {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          img {
+            height: 60px;
+            border-radius: 20%;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .show-container {
+    margin: 10% auto;
+    padding: 5%;
+    width: 65%;
+    background-color: $ocean-grey-background;
+    border-radius: 5px;
+
+    h4 {
+      line-height: 30px;
+      text-transform: capitalize;
+    }
+
+    .new-action-button {
+      margin-top: 20px;
+    }
+
+    .potluck-table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    .potluck-table {
+      th,
+      td {
+        text-align: center;
+        padding: 10px;
+        border-collapse: collapse;
+        border: none;
+
+        .comma-separator {
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+      thead {
+        tr {
+          background-color: $black-background;
+        }
+      }
+      tbody {
+        th,
+        tr {
+          &:nth-child(even) {
+            background-color: $black-background;
+          }
+        }
+      }
+    }
+  }
+}

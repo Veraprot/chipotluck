@@ -1,0 +1,50 @@
+<div class="profile-card-outer-container">
+  <h1><%= @user.name %>'s Profile</h1>
+  <div class="profile-card-container">
+    <div class="profile-image-container">
+        <%= image_tag(@user.avatar.url(:thumb), :class => "avatar-image") %>
+    </div>
+    <div class="profile-info-container">
+      <h4>Name: <%= @user.name %> </h4>
+      <h4>Email: <%= @user.email %> </h4>
+      <h4>Location: <%= @user.location %></h4>
+    </div>
+  </div>
+  <div class="profile-body-container">
+    <h4>About:
+      <p><%= @user.bio %>
+            
+      </p>
+    </h4>
+  </div>
+  <div class="user-events">
+    <h1><%= @user.name %>'s Events</h1>
+    <% @user.events.each do |event| %>
+      <%= link_to event, class: "event-card" do %>
+        <div class="event-content user-content">
+          <p class="event-name">
+            <%= event.name %>
+          </p>
+          <ul>
+            <li>
+              <!-- <%= fa_icon "camera-retro" %> -->
+              <%= fa_icon "calendar" %>
+              <%= event.date %>
+            </li>
+            <li>
+              <%= event.time %>
+            </li>
+            <li><%= event.location %></li>
+          </ul>
+          <div class="user-thumbnails">
+            <% event.users.uniq.each do |user| %>
+              <div class="thumbnail">
+                <%= image_tag(user.avatar.url(:thumb), :class => "avatar-image") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

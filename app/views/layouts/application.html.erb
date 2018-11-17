@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Potluck</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <!-- <div class="overlay"></div> -->
+    <div class="body-content-container">
+      <div class="navbar">
+        <%= render partial: "/layouts/navbar" %>
+      </div>
+      <div class="body-inner-container">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

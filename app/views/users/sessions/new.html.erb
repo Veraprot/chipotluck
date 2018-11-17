@@ -1,0 +1,27 @@
+<div class="profile-card-outer-container">
+  <div class="user-form">
+    <h1>Log in</h1>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|%>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="form-actions user-form">
+        <%= f.button :submit, "Log in", class: "new-action-button" %>
+        <%= render "users/shared/links" %>
+      </div>
+    <% end %>
+    <!-- <div class="shared-links user-form-links">
+      <%= render "users/shared/links" %>
+    </div> -->
+  </div>
+</div>
+ 
+
+<!-- <div class="user-form-wrapper">
+
+</div> -->

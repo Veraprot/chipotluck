@@ -1,0 +1,47 @@
+body { 
+  .profile-card-outer-container,
+  .show-container {
+    .profile-card-container { 
+      display: flex;
+
+      .profile-image-container {
+        img {
+          border-radius: 13%;
+        }
+      }
+
+      .profile-info-container {
+        margin-left: 15px;
+        
+        h4 {
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    .profile-body-container {
+      margin-top: 15px;
+    }
+
+    .new-action-button {
+      margin-top: 15px;
+      width: 190px;
+    }
+
+    .delete-button {
+      width: 190px;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+
+      a {
+        margin-left: 10px;
+      }
+    }
+  }
+}

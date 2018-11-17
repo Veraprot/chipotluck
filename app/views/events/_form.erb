@@ -1,0 +1,27 @@
+<div class="form-outer-container">
+  <%= simple_form_for @event do |f| %>
+    <%= f.input :name, label:'Name :' %>
+    <%= f.input :date, label:'Date :', as: :date, 
+                start_year: Date.today.year, 
+                end_year: Date.today.year + 15, 
+                order: [:month,:year,:day] 
+    %>                                           
+    <div class="timepicker">
+      <%= f.label :time, label: 'Time :' %>
+      <select class="hour form-control" name="event[hour]">
+        <%= options_for_select((1..12).to_a, @event.time ? @event.time.strftime('%l').to_i : nil) %>
+      </select>
+      <span class="colon">:</span>
+      <select class="minute form-control" name="event[minute]" >
+        <%= options_for_select(['00', '15', '30', '45'], @event.time ? @event.time.strftime('%M').to_i : nil) %>
+      </select>
+      <select class="meridiem form-control" name="event[meridiem]" >
+        <%= options_for_select(['AM', 'PM'], @event.time ? @event.time.strftime('%p') : nil) %>
+      </select>
+    </div>
+    <%= f.input :description, label:'Description :' %>
+    <%= f.input :location %>
+    <%= f.button :submit, class: "new-action-button" %>
+  <% end %>
+</div>
+
